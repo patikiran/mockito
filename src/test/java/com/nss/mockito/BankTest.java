@@ -24,7 +24,7 @@ public class BankTest {
         String expectedAccountNumber = "12345-67890";
         when(GenerateAccountService.generateAccountNumber()).thenReturn(expectedAccountNumber);
         double initialDeposit = 6000;
-        String result = bankService.createAccount("Venkat", initialDeposit);
+        String result = bankService.createAccount("kiran", initialDeposit);
         assertEquals(expectedAccountNumber, result);
         verifyStatic(GenerateAccountService.class);
         GenerateAccountService.generateAccountNumber();
@@ -33,7 +33,7 @@ public class BankTest {
     @Test
     public void testCreateAccount_Failure() {
         double initialDeposit = 4000;
-        String result = bankService.createAccount("Venkat", initialDeposit);
+        String result = bankService.createAccount("kiran", initialDeposit);
         assertEquals("Application rejected: Minimum deposit should be at least 5000.0", result);
     }
 
